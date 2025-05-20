@@ -191,7 +191,7 @@ export default function VideoModeSwitcher() {
 
         try {
             setResultText('🧠 예측 중...');
-            const res = await fetch(`https://sonsationai.onrender.com:10000/predict/learn?sign=${videoData.name}`, {
+            const res = await fetch(`https://sonsationai.onrender.com/predict/learn?sign=${videoData.name}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ sequence: padded }),

@@ -199,7 +199,7 @@ export default function QuizPage() {
 
         try {
             setResultText('🧠 예측 중...');
-            const res = await fetch(`https://sonsationai.onrender.com:10000/predict/quiz?sign=${selectedWord}`, {
+            const res = await fetch(`https://sonsationai.onrender.com/predict/quiz?sign=${selectedWord}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ sequence: padded }),
