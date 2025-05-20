@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sonsation-ai.netlify.app/sitemap.xml
