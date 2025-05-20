@@ -29,7 +29,7 @@ export default function VideoModeSwitcher() {
 
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:8080/api/sign/${id}`)
+            fetch(`https://sonsation-server.onrender.com/api/sign/${id}`)
                 .then((res) => res.json())
                 .then((res) => {
                     if (res.success) setVideoData(res.data);
@@ -191,7 +191,7 @@ export default function VideoModeSwitcher() {
 
         try {
             setResultText('🧠 예측 중...');
-            const res = await fetch(`http://localhost:8000/predict/learn?sign=${videoData.name}`, {
+            const res = await fetch(`https://sonsationai.onrender.com:10000/predict/learn?sign=${videoData.name}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ sequence: padded }),

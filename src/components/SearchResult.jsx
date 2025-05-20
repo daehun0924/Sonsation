@@ -24,7 +24,7 @@ const SearchResult = () => {
     useEffect(() => {
         if (!keyword) return;
         setCurrentPage(1);
-        fetch(`http://localhost:8000/api/sign?keyword=${encodeURIComponent(keyword)}`)
+        fetch(`https://sonsation-server.onrender.com/api/sign?keyword=${encodeURIComponent(keyword)}`)
             .then((res) => res.json())
             .then((res) => {
                 if (res.success && Array.isArray(res.data)) {

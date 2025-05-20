@@ -175,7 +175,7 @@ const VideoLibrary = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/sign') // GET 수어 리스트 API
+        fetch('https://sonsation-server.onrender.com/api/sign') // GET 수어 리스트 API
             .then((res) => res.json())
             .then((res) => {
                 if (res.success && Array.isArray(res.data)) {

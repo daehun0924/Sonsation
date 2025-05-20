@@ -67,6 +67,9 @@ export default function MainPage() {
                     </div>
                     <img className="feature-image" src={img1} alt="수화 퀴즈" />
                 </motion.div>
+                <button className="intro-start-button" onClick={() => navigate('/category')}>
+                    수어 카테고리
+                </button>
             </div>
         </div>
     );

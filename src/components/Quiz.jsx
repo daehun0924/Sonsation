@@ -25,7 +25,7 @@ export default function QuizPage() {
     const lastFrame = useRef(null);
     const CHANGE_THRESHOLD = 0.003;
     useEffect(() => {
-        fetch('http://localhost:8080/api/sign/name')
+        fetch('https://sonsation-server.onrender.com/api/sign/name')
             .then((res) => {
                 if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
                 return res.json();
@@ -199,7 +199,7 @@ export default function QuizPage() {
 
         try {
             setResultText('🧠 예측 중...');
-            const res = await fetch(`http://localhost:8000/predict/quiz?sign=${selectedWord}`, {
+            const res = await fetch(`https://sonsationai.onrender.com:10000/predict/quiz?sign=${selectedWord}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ sequence: padded }),
@@ -207,11 +207,12 @@ export default function QuizPage() {
             const data = await res.json();
 
             if (data.match) {
-                setResultText(`🥳 ${data.message} (신뢰도: ${(data.confidence * 100).toFixed(1)}%)`);
+                setResultText(`🥳 ${data.message}`);
+                console.log(`(신뢰도: ${(data.confidence * 100).toFixed(1)}%)`);
                 setShowReviewButton(false); // 복습 버튼 감춤
             } else {
-                setResultText(`🤔 ${data.message} (신뢰도: ${(data.confidence * 100).toFixed(1)}%)`);
-
+                setResultText(`🤔 ${data.message}`);
+                console.log(`(신뢰도: ${(data.confidence * 100).toFixed(1)}%)`);
                 // ✅ selectedId 찾기
                 const selectedItem = words.find((item) => item.name === selectedWord);
                 if (selectedItem) {
